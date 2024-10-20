@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        svg {
+            display: block;
+        }
+
+        .event {
+            fill: black;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .axis {
+            font: 10px sans-serif;
+        }
+
+        .axis line,
+        .axis path {
+            shape-rendering: crispEdges;
+            stroke: black;
+            fill: none;
+        }
+
+        .range {
+            fill: rgba(70, 130, 180, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>History of Scania (Skåne)</h1>
+    <svg></svg>
+
+    <div id="tooltip"
+        style="position: absolute; opacity: 0; background-color: lightgray; padding: 5px; border-radius: 3px; pointer-events: none;">
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        const events = [
+
+            { content: 'Western hunter-gatherer (WHG)', start: -15000, end: -5000, desc: "Hunter-gatherers living in Europe during the late Paleolithic and Mesolithic periods." },
+            { content: 'Anatolian hunter-gatherers (AHG)', start: -15000, end: -8000, desc: "Pre-agricultural communities in Anatolia, preceding the Neolithic era." },
+            { content: 'Eastern hunter-gatherer (EHG)', start: -14000, end: -9000, desc: "Ancient people from Eastern Europe and Siberia, merging with other populations during migration." },
+            { content: 'Anatolian Neolithic Farmers (ANF)', start: -10000, end: -5500, desc: "Early farming communities in Anatolia, pivotal in the spread of agriculture to Europe." },
+            { content: 'Scandinavian hunter-gatherer (SHG)', start: -9500, end: -4000, desc: "The first inhabitants of Scandinavia, relying on hunting, fishing, and foraging." },
+            { content: 'Maglemosian culture', start: -9000, end: -6000, desc: "Mesolithic culture known for its advanced tool-making and settlement of forests and lakes." },
+            { content: 'Early European Farmers (EEF)', start: -7000, end: -4000, desc: "Early Neolithic farmers who spread agriculture throughout Europe from the Near East." },
+            { content: 'Kongemose culture', start: -6000, end: -5200, desc: "A Mesolithic culture in southern Scandinavia, preceding the Ertebølle culture." },
+            { content: 'Ertebølle culture', start: -5400, end: -3950, desc: "A late Mesolithic culture known for pottery and transitioning towards farming." },
+            { content: 'Funnelbeaker culture', start: -4300, end: -2800, desc: "Early Neolithic farmers who built megalithic tombs and cultivated land in northern Europe." },
+            { content: 'Pitted Ware culture', start: -3500, end: -2300, desc: "A culture known for its distinctive pottery and reliance on coastal hunting and fishing." },
+            { content: 'Yamnaya culture', start: -3300, end: -2600, desc: "A nomadic pastoralist group from the Eurasian steppe, contributing to the spread of Indo-European languages." },
+            { content: 'Corded Ware culture', start: -3000, end: -2350, desc: "A widespread European culture known for its cord-impressed pottery and burial practices." },
+            { content: 'Bell Beaker culture', start: -2800, end: -1800, desc: "A European culture known for its distinctive bell-shaped pottery and copper use." },
+            { content: 'Battle Axe culture', start: -2800, end: -2300, desc: "A culture in northern Europe, often associated with warrior elites and the spread of Indo-European languages." },
+            { content: 'Western Steppe Herders (WSH)', start: -5000, end: -2000, desc: "Nomadic herders from the Pontic-Caspian steppe, crucial in the Indo-European expansion." },
+            { content: 'Nordic Bronze Age', start: -1750, end: -500, desc: "A flourishing period in Scandinavia, known for its bronze artifacts and long-distance trade. Settlements had expanded from the fertile areas in the southwest and southeast to include more regions. People lived in a hierarchical society where significant individuals were buried in large burial mounds, which are still visible in the landscape of Skåne today." },
+            { content: 'Pre-Roman Iron Age', start: -500, end: -100, desc: "The period before Roman influence, marked by the transition to iron use in northern Europe." },
+            { content: 'Roman Iron Age', start: 0, end: 400, desc: "A time of Roman contact and influence in Scandinavia, though not direct rule." },
+            { content: 'Migration Period', start: 400, end: 800, desc: "A time of upheaval and migration in Europe, with the fall of the Western Roman Empire and the rise of new kingdoms." },
+            { content: 'Viking age', start: 800, end: 1050, desc: "The era of Norse exploration, trade, and raids, shaping Scandinavian and European history." },
+            { content: 'Middle Ages', start: 500, end: 1500, desc: "A period of feudalism, Christianization, and consolidation of kingdoms in Scandinavia." },
+            { content: 'Renaissance', start: 1300, end: 1700, desc: "A cultural and intellectual revival, marked by advances in art, science, and exploration." },
+            { content: 'Industrial Revolution', start: 1760, end: 1840, desc: "The transition to industrial economies, changing social structures and technologies in Europe." },
+            { content: 'Modern Age', start: 1900, end: 2024, desc: "The contemporary period, characterized by technological advancements, global conflicts, and rapid societal changes." }
+            ,
+
+            { content: 'Weichselian glaciation end', start: -14000, desc: "The last glacial period in northern Europe, shaping much of Scandinavia's landscape." },
+            { content: 'The oldest traces of humans in Skåne.', start: -11500, desc: "The oldest traces of humans in Skåne have been found in Mölleröd, near the northern part of Lake Finjasjö." },
+            { content: 'The sea level rose, and the Öresund strait was formed', start: -11500, desc: "Holocene climatic optimum starts. The sea level rose, and the Öresund strait was formed." },
+            { content: 'Settlements in Skateholm.', start: -5000, desc: "In Skateholm, settlements and around ninety graves dating back to approximately 5000 BC have been found." },
+            {
+                content: 'The King\'s Grave in Kivik.',
+                start: -1600,
+                desc: "The King's Grave, also known as Kiviksgraven or Bredarör, is a burial cairn located in Kivik, in the parish of Södra Mellby and the municipality of Simrishamn. It is a burial site from the Bronze Age, which has been partially destroyed, looted, and restored to a non-original state throughout history. In its restored form, the grave measures approximately 75 meters in diameter and is 3.5 meters high. It is considered to be one of the largest graves from the Early Bronze Age in Scandinavia (around 1700–1100 BC). The grave contains a coffin that is 3.25 meters long and just over a meter wide."
+            }
+        ];
+
+        const svg = d3.select("svg"),
+            margin = { top: 30, right: 30, bottom: 30, left: 40 };
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        svg.attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+
+        let x = d3.scaleLinear()
+            .domain([-15000, 2024])
+            .range([margin.left, width - margin.right]);
+
+        let xAxis = d3.axisBottom(x)
+            .tickFormat(d => d < 0 ? Math.abs(d) + " BCE" : d + " CE");
+
+        let gX = svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", `translate(0, ${height - margin.bottom})`)
+            .call(xAxis);
+
+        const getVerticalPosition = (index, total) => {
+            return height - margin.bottom - (index * (height - margin.top - margin.bottom + 50) / total) - 20;
+        };
+
+        let rangesGroup = svg.selectAll(".range")
+            .data(events.filter(d => d.end))
+            .enter().append("rect")
+            .attr("class", "range")
+            .attr("x", d => x(d.start))
+            .attr("width", d => x(d.end) - x(d.start))
+            .attr("y", (d, i) => getVerticalPosition(i, events.length))
+            .attr("height", 20);
+
+        let pointEventsGroup = svg.selectAll(".point-event")
+            .data(events.filter(d => !d.end))
+            .enter().append("circle")
+            .attr("class", "point-event")
+            .attr("cx", d => x(d.start))
+            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 300)
+            .attr("r", 5)
+            .attr("fill", "red");
+
+        let eventsGroup = svg.selectAll(".event")
+            .data(events.filter(d => d.end))
+            .enter().append("text")
+            .attr("class", "event")
+            .attr("x", d => d.end ? x((d.start + d.end) / 2) : x(d.start))
+            /* change  events.length) - y move label vert.*/
+            .attr("y", (d, i) => getVerticalPosition(i, events.length) + 10)
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .text(d => d.content);
+
+        let pointLabelsGroup = svg.selectAll(".point-label")
+            .data(events.filter(d => !d.end))
+            .enter().append("text")
+            .attr("class", "event")
+            .attr("x", d => x(d.start))
+            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 290)
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .text(d => d.content);
+
+        // Tooltip setup
+        const tooltip = d3.select("#tooltip");
+
+        // Add tooltips for range events
+        rangesGroup.on("mouseover", function (event, d) {
+            tooltip.transition().duration(200).style("opacity", 1);
+            tooltip.html(`${d.content}<br>${Math.abs(d.start)} ${d.start < 0 ? 'BCE' : 'CE'} - ${Math.abs(d.end)} ${d.end < 0 ? 'BCE' : 'CE'}<br>${d.desc ? d.desc : ''}`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 30) + "px");
+        })
+            .on("mousemove", function (event) {
+                tooltip.style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 30) + "px");
+            })
+            .on("mouseout", function () {
+                tooltip.transition().duration(200).style("opacity", 0);
+            });
+
+        // Add tooltips for point events
+        pointEventsGroup.on("mouseover", function (event, d) {
+            tooltip.transition().duration(200).style("opacity", 1);
+            tooltip.html(`${d.content}<br>${Math.abs(d.start)} ${d.start < 0 ? 'BCE' : 'CE'}<br>${d.desc ? d.desc : ''}`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 30) + "px");
+        })
+            .on("mousemove", function (event) {
+                tooltip.style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 30) + "px");
+            })
+            .on("mouseout", function () {
+                tooltip.transition().duration(200).style("opacity", 0);
+            });
+
+
+        // Zoom and pan functionality
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 10])
+            .on("zoom", zoomed);
+
+        svg.call(zoom);
+
+        function zoomed(event) {
+            const transform = event.transform;
+            gX.call(xAxis.scale(transform.rescaleX(x)));
+            rangesGroup.attr("x", d => transform.applyX(x(d.start)))
+                .attr("width", d => transform.applyX(x(d.end)) - transform.applyX(x(d.start)));
+            pointEventsGroup.attr("cx", d => transform.applyX(x(d.start)));
+            eventsGroup.attr("x", d => transform.applyX(x((d.start + d.end) / 2)));
+            pointLabelsGroup.attr("x", d => transform.applyX(x(d.start)));
+        }
+
+    </script>
+</body>
+
+</html>

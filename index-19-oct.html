@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Timeline with Vertical Placement</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        svg {
+            display: block;
+        }
+
+        .event {
+            fill: steelblue;
+            font-size: 12px;
+        }
+
+        .axis {
+            font: 10px sans-serif;
+        }
+
+        .axis line,
+        .axis path {
+            shape-rendering: crispEdges;
+            stroke: black;
+            fill: none;
+        }
+
+        .range {
+            fill: rgba(70, 130, 180, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <svg></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        const events = [
+            { id: 1, content: 'Western hunter-gatherer (WHG)', start: -15000, end: -5000 },
+            { id: 2, content: 'Anatolian hunter-gatherers (AHG)', start: -15000, end: -8000 },
+            { id: 3, content: 'Eastern hunter-gatherer (EHG)', start: -14000, end: -9000 },
+            { id: 4, content: 'Anatolian Neolithic Farmers (ANF)', start: -10000, end: -5500 },
+            { id: 5, content: 'Scandinavian hunter-gatherer (SHG)', start: -9500, end: -4000 },
+            { id: 6, content: 'Maglemosian culture', start: -9000, end: -6000 },
+            { id: 7, content: 'Early European Farmers (EEF)', start: -7000, end: -4000 },
+            { id: 8, content: 'Kongemose culture', start: -6000, end: -5200 },
+            { id: 9, content: 'Ertebølle culture', start: -5400, end: -3950 },
+            { id: 10, content: 'Funnelbeaker culture', start: -4300, end: -2800 },
+            { id: 11, content: 'Pitted Ware culture', start: -3500, end: -2300 },
+            { id: 12, content: 'Yamnaya culture', start: -3300, end: -2600 },
+            { id: 13, content: 'Corded Ware culture', start: -3000, end: -2350 },
+            { id: 14, content: 'Bell Beaker culture', start: -2800, end: -1800 },
+            { id: 15, content: 'Battle Axe culture', start: -2800, end: -2300 },
+            { id: 16, content: 'Western Steppe Herders (WSH)', start: -5000, end: -2000 },
+            { id: 17, content: 'Viking age', start: 800, end: 1050 }
+        ];
+
+        const svg = d3.select("svg"),
+            margin = { top: 20, right: 30, bottom: 50, left: 40 };
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        // Set viewBox for responsiveness
+        svg.attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+
+        // Scale for the x-axis (timeline years)
+        let x = d3.scaleLinear()
+            .domain([-15000, 2024])  // Adjust domain for your data range
+            .range([margin.left, width - margin.right]);
+
+        let xAxis = d3.axisBottom(x)
+            .tickFormat(d => d < 0 ? Math.abs(d) + " BCE" : d + " CE");
+
+        let gX = svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", `translate(0, ${height - margin.bottom})`)
+            .call(xAxis);
+
+        // Calculate vertical position based on index
+        const getVerticalPosition = (index, total) => {
+            return height - margin.bottom - (index * (height - margin.top - margin.bottom + 30) / total) - 20; // Adjust to move bars up
+        };
+
+        // Add the timeline events with ranges
+        let rangesGroup = svg.selectAll(".range")
+            .data(events.filter(d => d.end))
+            .enter().append("rect")
+            .attr("class", "range")
+            .attr("x", d => x(d.start))
+            .attr("width", d => x(d.end) - x(d.start))
+            .attr("y", (d, i) => getVerticalPosition(i, events.length)) // Place based on index
+            .attr("height", 20);
+
+        // Add labels to the events
+        let eventsGroup = svg.selectAll(".event")
+            .data(events)
+            .enter().append("text")
+            .attr("class", "event")
+            .attr("x", d => d.end ? x((d.start + d.end) / 2) : x(d.start))
+            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 5) // Position labels correctly above the range
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .text(d => d.content);
+
+        // Zoom and pan functionality
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 10])
+            .on("zoom", zoomed);
+
+        svg.call(zoom);
+
+        function zoomed(event) {
+            const transform = event.transform;
+            gX.call(xAxis.scale(transform.rescaleX(x)));
+            rangesGroup.attr("x", d => transform.applyX(x(d.start)))
+                .attr("width", d => transform.applyX(x(d.end)) - transform.applyX(x(d.start)))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length)); // Ensure bars stay positioned correctly
+            eventsGroup.attr("x", d => d.end ? transform.applyX(x((d.start + d.end) / 2)) : transform.applyX(x(d.start)))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length) - 5); // Position labels correctly
+        }
+
+        // Update the timeline dimensions on window resize
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            // Update SVG viewBox
+            svg.attr("viewBox", `0 0 ${width} ${height}`);
+
+            // Update scale range to match the new width
+            x.range([margin.left, width - margin.right]);
+
+            // Re-render the axis and events
+            gX.attr("transform", `translate(0, ${height - margin.bottom})`)
+                .call(xAxis);
+
+            rangesGroup.attr("x", d => x(d.start))
+                .attr("width", d => x(d.end) - x(d.start))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length))
+                .attr("height", 20);
+
+            eventsGroup.attr("x", d => d.end ? x((d.start + d.end) / 2) : x(d.start))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length) - 5);
+        }
+
+        // Listen to window resize events
+        window.addEventListener("resize", resize);
+    </script>
+</body>
+
+</html>

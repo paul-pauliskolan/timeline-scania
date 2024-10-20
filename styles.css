@@ -1,0 +1,14 @@
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052,
+    serif;
+  font-weight: normal;
+
+  /* font-family: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
+  font-weight: normal; */
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  position: absolute;
+  margin-left: 10px;
+}
