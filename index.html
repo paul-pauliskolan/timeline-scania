@@ -174,7 +174,7 @@
             .attr("width", d => x(d.end) - x(d.start))
             .attr("y", (d, i) => getVerticalPosition(i, events.length))
             .attr("height", 20)
-            .attr("fill", d => d.timestamp === "period" ? "green" : "rgba(167, 215, 255, 0.6)");
+            .attr("fill", d => d.timestamp === "period" ? "rgba(167, 215, 55, 0.6)" : "rgba(167, 215, 255, 0.6)");
 
 
 
