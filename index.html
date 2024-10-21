@@ -37,9 +37,9 @@
             fill: none;
         }
 
-        .range {
-            fill: rgba(70, 130, 180, 0.6);
-        }
+        /*     .range {
+            fill: rgba(167, 215, 255, 0.6);
+        } */
     </style>
 </head>
 
@@ -74,27 +74,49 @@
             { content: 'Nordic Bronze Age', start: -1750, end: -500, desc: "A flourishing period in Scandinavia, known for its bronze artifacts and long-distance trade. Settlements had expanded from the fertile areas in the southwest and southeast to include more regions. People lived in a hierarchical society where significant individuals were buried in large burial mounds, which are still visible in the landscape of Skåne today." },
             { content: 'Pre-Roman Iron Age', start: -500, end: -100, desc: "The period before Roman influence, marked by the transition to iron use in northern Europe." },
             { content: 'Roman Iron Age', start: 0, end: 400, desc: "A time of Roman contact and influence in Scandinavia, though not direct rule." },
+            {
+                content: 'Uppåkra.', timestamp: "period",
+                start: -100,
+                end: 1000,
+                desc: "Around the 1st century BC, Uppåkra was a small Iron Age settlement that grew into one of Northern Europe's largest. It became a political power center for an aristocracy, evidenced by impressive hall buildings resembling wooden palaces. Dramatic events, such as house fires and violent deaths, occurblue there. With only 0.2% of Uppåkra excavated, future digs will continue to reshape Scandinavian history. Cultural layers reach nearly two meters in depth, and many mysteries, including the site's role, how its people lived, and where they were buried, remain to be uncovered."
+            },
             { content: 'Migration Period', start: 400, end: 800, desc: "A time of upheaval and migration in Europe, with the fall of the Western Roman Empire and the rise of new kingdoms." },
             { content: 'Viking age', start: 800, end: 1050, desc: "The era of Norse exploration, trade, and raids, shaping Scandinavian and European history." },
-            { content: 'Middle Ages', start: 500, end: 1500, desc: "A period of feudalism, Christianization, and consolidation of kingdoms in Scandinavia." },
+            { content: 'Middle Ages', start: 1050, end: 1500, desc: "A period of feudalism, Christianization, and consolidation of kingdoms in Scandinavia." },
             { content: 'Renaissance', start: 1300, end: 1700, desc: "A cultural and intellectual revival, marked by advances in art, science, and exploration." },
             { content: 'Industrial Revolution', start: 1760, end: 1840, desc: "The transition to industrial economies, changing social structures and technologies in Europe." },
             { content: 'Modern Age', start: 1900, end: 2024, desc: "The contemporary period, characterized by technological advancements, global conflicts, and rapid societal changes." }
             ,
 
             { content: 'Weichselian glaciation end', start: -14000, desc: "The last glacial period in northern Europe, shaping much of Scandinavia's landscape." },
-            { content: 'The oldest traces of humans in Skåne.', start: -11500, desc: "The oldest traces of humans in Skåne have been found in Mölleröd, near the northern part of Lake Finjasjö." },
-            { content: 'The sea level rose, and the Öresund strait was formed', start: -11500, desc: "Holocene climatic optimum starts. The sea level rose, and the Öresund strait was formed." },
-            { content: 'Settlements in Skateholm.', start: -5000, desc: "In Skateholm, settlements and around ninety graves dating back to approximately 5000 BC have been found." },
             {
                 content: 'The King\'s Grave in Kivik.',
                 start: -1600,
                 desc: "The King's Grave, also known as Kiviksgraven or Bredarör, is a burial cairn located in Kivik, in the parish of Södra Mellby and the municipality of Simrishamn. It is a burial site from the Bronze Age, which has been partially destroyed, looted, and restored to a non-original state throughout history. In its restored form, the grave measures approximately 75 meters in diameter and is 3.5 meters high. It is considered to be one of the largest graves from the Early Bronze Age in Scandinavia (around 1700–1100 BC). The grave contains a coffin that is 3.25 meters long and just over a meter wide."
-            }
+            },
+            { content: 'The oldest traces of humans in Skåne.', start: -11500, desc: "The oldest traces of humans in Skåne have been found in Mölleröd, near the northern part of Lake Finjasjö." },
+            { content: 'The sea level rose, and the Öresund strait was formed', start: -11500, desc: "Holocene climatic optimum starts. The sea level rose, and the Öresund strait was formed." },
+            { content: 'Settlements in Skateholm.', start: -5000, desc: "In Skateholm, settlements and around ninety graves dating back to approximately 5000 BC have been found." },
+            ,
+            {
+                content: 'Skåne is mentioned in writing for the first time',
+                start: 811,
+                desc: "Skåne is first mentioned in writing in the Annales Regni Francorum in connection with the peace treaty between the Danes and Charlemagne in the year 811. Included in the Danish entourage was 'Osfrid from Schonen,' who was possibly the king of Skåne."
+            },
+            { content: 'Danish king Harald Bluetooth conquered Skåne.', start: 970, desc: "Through, among other things, the spread of rune stones from the late 10th century, it can be concluded that the Öresund coast and the southern coast of Skåne must have been brought under Harald's rule." },
+            { content: 'Harald Bluetooth introduced the Christianity to Skåne.', start: 1000, desc: "By constructing so-called trelleborgs, large ring fortresses for garrisons of soldiers, he took control of parts of the region. A characteristic feature of these ring fortresses is that a Christian church was built just outside one of the gates, likely dedicated to St. Clemens. Trelleborgs are well documented in Trelleborg and near Borgeby Castle by Löddeköpinge." },
+
+
+            {
+                content: 'Sven Estridsson',
+                start: 1020,
+
+                desc: "The Danish king Sven Estridsson powerfully dominated Skåne's politics during the mid-11th century. The king, whose father Ulf Torgilsson had been the Jarl of Skåne and was murdered by the previous king, likely owned a large number of estates in the region, as did his mother Estrid, who donated '50 bol' in Göinge to the cathedral in Roskilde. Sven himself transferred royal property to the church in Dalby."
+            },
         ];
 
         const svg = d3.select("svg"),
-            margin = { top: 30, right: 30, bottom: 30, left: 40 };
+            margin = { top: 30, right: 120, bottom: 30, left: 20 };
 
         let width = window.innerWidth;
         let height = window.innerHeight;
@@ -115,8 +137,18 @@
             .call(xAxis);
 
         const getVerticalPosition = (index, total) => {
-            return height - margin.bottom - (index * (height - margin.top - margin.bottom + 50) / total) - 20;
+            return height - margin.bottom - (index * (height - margin.top - margin.bottom + 360) / total) - 20;
         };
+
+        /*    let rangesGroup = svg.selectAll(".range")
+               .data(events.filter(d => d.end))
+               .enter().append("rect")
+               .attr("class", "range")
+               .attr("x", d => x(d.start))
+               .attr("width", d => x(d.end) - x(d.start))
+               .attr("y", (d, i) => getVerticalPosition(i, events.length))
+               .attr("height", 20);
+    */
 
         let rangesGroup = svg.selectAll(".range")
             .data(events.filter(d => d.end))
@@ -125,16 +157,10 @@
             .attr("x", d => x(d.start))
             .attr("width", d => x(d.end) - x(d.start))
             .attr("y", (d, i) => getVerticalPosition(i, events.length))
-            .attr("height", 20);
+            .attr("height", 20)
+            .attr("fill", d => d.timestamp === "period" ? "green" : "rgba(167, 215, 255, 0.6)");
 
-        let pointEventsGroup = svg.selectAll(".point-event")
-            .data(events.filter(d => !d.end))
-            .enter().append("circle")
-            .attr("class", "point-event")
-            .attr("cx", d => x(d.start))
-            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 300)
-            .attr("r", 5)
-            .attr("fill", "red");
+
 
         let eventsGroup = svg.selectAll(".event")
             .data(events.filter(d => d.end))
@@ -147,12 +173,21 @@
             .attr("text-anchor", "middle")
             .text(d => d.content);
 
+        let pointEventsGroup = svg.selectAll(".point-event")
+            .data(events.filter(d => !d.end))
+            .enter().append("circle")
+            .attr("class", "point-event")
+            .attr("cx", d => x(d.start))
+            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 235)
+            .attr("r", 5)
+            .attr("fill", "blue");
+
         let pointLabelsGroup = svg.selectAll(".point-label")
             .data(events.filter(d => !d.end))
             .enter().append("text")
             .attr("class", "event")
             .attr("x", d => x(d.start))
-            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 290)
+            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 220)
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
             .text(d => d.content);
