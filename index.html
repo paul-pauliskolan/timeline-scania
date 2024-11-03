@@ -129,6 +129,7 @@
         closeBtn.addEventListener('click', () => {
             infoBox.style.display = 'none';
             openIcon.style.display = 'block';
+
         });
 
         const events = [
@@ -139,6 +140,7 @@
             { content: 'Eastern hunter-gatherer (EHG)', start: -14000, end: -9000, desc: "Ancient people from Eastern Europe and Siberia, merging with other populations during migration." },
             { content: 'Hamburg culture', start: -13500, end: -11150, desc: "A late Upper Paleolithic culture of reindeer hunters in northwestern Europe during the last part of the Weichsel Glaciation beginning during the Bölling interstadial." },
             { content: 'Caucasus hunter-gatherer (CHG)', start: -13000, end: -6000, desc: "Hunter-gatherers from the Caucasus region, contributing to the genetic diversity of Europe." },
+
 
 
 
@@ -175,10 +177,21 @@
             { content: 'Modern Age', start: 1900, end: 2024, desc: "The contemporary period, characterized by technological advancements, global conflicts, and rapid societal changes." },
             { content: 'Weichselian glaciation end', start: -14000, desc: "The last glacial period in northern Europe, shaping much of Scandinavia's landscape." },
             {
+                content: 'Farmers (EEF) with genetic roots in Anatolia arrived.',
+                start: -3900,
+                desc: "Early European Farmers (EEF) were a group of the Anatolian Neolithic Farmers (ANF) who brought agriculture to Europe and Northwest Africa. They were the first to cultivate crops and raise livestock, leading to a shift from hunter-gatherer societies to settled farming communities. EEF farmers spread across Europe, mixing with local hunter-gatherer populations and contributing to the genetic diversity of modern Europeans."
+            },
+            {
+                content: 'People with genetic roots from Pontic–Caspian steppe arrived.',
+                start: -2650,
+                desc: "The Yamnaya people, associated with the Proto-Indo-European migrations, began spreading into Europe from the Pontic-Caspian steppe around 3000 BCE. Their influence reached Northern Europe and Scandinavia, including Skåne, by approximately 2800–2500 BCE. They are linked to the Corded Ware culture in Europe, which shows strong genetic and cultural ties to the Yamnaya."
+            },
+            {
                 content: 'The King\'s Grave in Kivik.',
                 start: -1600,
                 desc: "The King's Grave, also known as Kiviksgraven or Bredarör, is a burial cairn located in Kivik, in the parish of Södra Mellby and the municipality of Simrishamn. It is a burial site from the Bronze Age, which has been partially destroyed, looted, and restored to a non-original state throughout history. In its restored form, the grave measures approximately 75 meters in diameter and is 3.5 meters high. It is considered to be one of the largest graves from the Early Bronze Age in Scandinavia (around 1700–1100 BC). The grave contains a coffin that is 3.25 meters long and just over a meter wide."
             },
+
             {
                 content: 'Skåne is mentioned in writing for the first time',
                 start: 811,
@@ -193,6 +206,9 @@
                 start: 1020,
 
                 desc: "The Danish king Sven Estridsson powerfully dominated Skåne's politics during the mid-11th century. The king, whose father Ulf Torgilsson had been the Jarl of Skåne and was murdered by the previous king, likely owned a large number of estates in the region, as did his mother Estrid, who donated '50 bol' in Göinge to the cathedral in Roskilde. Sven himself transferred royal property to the church in Dalby."
+            },
+            {
+                content: 'The Battle of Fotevik', start: 1134, desc: "The Battle of Fotevik was fought on 4 June 1134 between the fleets of the Kingdom of Denmark and the Kingdom of Sweden near Fotevik, close to the modern town of Trelleborg. The battle ended in a decisive victory for the Danish forces, led by King Eric II of Denmark, over the Swedish forces, led by King Niels of Sweden. The battle was part of the ongoing conflict between Denmark and Sweden over control of the southern Baltic Sea and the Scanian provinces."
             },
             {
                 content: 'Skåne was conquered by Sweden.',
@@ -214,8 +230,6 @@
 
 
         ];
-
-
 
         const svg = d3.select("svg"),
             margin = { top: 30, right: 120, bottom: 30, left: 20 };
@@ -262,8 +276,6 @@
             .attr("height", 20)
             .attr("fill", d => d.timestamp === "period" ? "rgba(167, 215, 55, 0.6)" : "rgba(167, 215, 255, 0.6)");
 
-
-
         let eventsGroup = svg.selectAll(".event")
             .data(events.filter(d => d.end))
             .enter().append("text")
@@ -280,7 +292,7 @@
             .enter().append("circle")
             .attr("class", "point-event")
             .attr("cx", d => x(d.start))
-            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 235)
+            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 80)
             .attr("r", 5)
             .attr("fill", "blue");
 
@@ -289,7 +301,7 @@
             .enter().append("text")
             .attr("class", "event")
             .attr("x", d => x(d.start))
-            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 220)
+            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 70)
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
             .text(d => d.content);
@@ -312,7 +324,6 @@
                 tooltip.transition().duration(200).style("opacity", 0);
             });
 
-
         // Add tooltips for point events
         pointEventsGroup.on("mouseover", function (event, d) {
             tooltip.transition().duration(200).style("opacity", 1);
@@ -327,8 +338,6 @@
             .on("mouseout", function () {
                 tooltip.transition().duration(200).style("opacity", 0);
             });
-
-
 
         // Zoom and pan functionality
         const zoom = d3.zoom()
@@ -348,6 +357,31 @@
         }
 
 
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            svg.attr("viewBox", `0 0 ${width} ${height}`);
+
+            x.range([margin.left, width - margin.right]);
+
+            gX.attr("transform", `translate(0, ${height - margin.bottom})`)
+                .call(xAxis);
+
+            rangesGroup.attr("x", d => x(d.start))
+                .attr("width", d => x(d.end) - x(d.start))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length));
+
+            eventsGroup.attr("x", d => d.end ? x((d.start + d.end) / 2) : x(d.start))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length) + 10);
+
+            pointEventsGroup.attr("cx", d => x(d.start))
+                .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 80);
+
+            pointLabelsGroup.attr("x", d => x(d.start))
+                .attr("y", (d, i) => getVerticalPosition(i, events.length) - 70);
+        });
 
     </script>
 </body>
