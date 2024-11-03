@@ -58,14 +58,15 @@
             position: absolute;
             top: 100px;
             left: 10px;
-            width: 50vw;
+
+            width: 30vw;
             background-color: white;
             padding: 10px;
             border: 1px solid black;
             border-radius: 5px;
             z-index: 5;
             /* Ensure it is above other elements but below the tooltip */
-            /*   display: none; */
+            display: none;
             /* Initially hidden */
         }
 
@@ -175,7 +176,7 @@
             { content: 'Age of Enlightenment', start: 1650, end: 1800, desc: "An intellectual movement emphasizing reason, science, and individual rights." },
             { content: 'Industrial Revolution', start: 1760, end: 1840, desc: "The transition to industrial economies, changing social structures and technologies in Europe." },
             { content: 'Modern Age', start: 1900, end: 2024, desc: "The contemporary period, characterized by technological advancements, global conflicts, and rapid societal changes." },
-            { content: 'Weichselian glaciation end', start: -14000, desc: "The last glacial period in northern Europe, shaping much of Scandinavia's landscape." },
+
             {
                 content: 'Farmers (EEF) with genetic roots in Anatolia arrived.',
                 start: -3900,
@@ -215,6 +216,7 @@
                 start: 1658,
                 desc: "After the conquest, especially during the reign of Charles XI (1660–1697), a comprehensive Swedish assimilation of Skåne was carried out. Repeated Danish attempts to retake Skåne and the other Scanian provinces, including the Scanian War (1675–1679) and the Danish campaign in Skåne and Blekinge in 1709–1710, were repelled."
             },
+            { content: 'Weichselian glaciation end', start: -14000, desc: "The last glacial period in northern Europe, shaping much of Scandinavia's landscape." },
             { content: 'The oldest traces of humans in Skåne.', start: -11500, desc: "The oldest traces of humans in Skåne have been found in Mölleröd, near the northern part of Lake Finjasjö." },
             { content: 'Skåne lost its land bridge to Själland.', start: -7500, desc: "At times, the sea was at its current level, and other times several meters higher." },
             { content: 'The strait of Öresund was formed', start: -11500, desc: "Holocene climatic optimum starts. The sea level rose, and the Öresund strait was formed." },
@@ -253,18 +255,21 @@
             .call(xAxis);
 
         const getVerticalPosition = (index, total) => {
-            return height - margin.bottom - (index * (height - margin.top - margin.bottom + 460) / total) - 20;
+            return height - margin.bottom - (index * (height - margin.top - margin.bottom + 590) / total) - 20;
         };
 
-        /*    let rangesGroup = svg.selectAll(".range")
-               .data(events.filter(d => d.end))
-               .enter().append("rect")
-               .attr("class", "range")
-               .attr("x", d => x(d.start))
-               .attr("width", d => x(d.end) - x(d.start))
-               .attr("y", (d, i) => getVerticalPosition(i, events.length))
-               .attr("height", 20);
-    */
+        // Add vertical lines every 1000 years
+        const verticalLines = d3.range(-15000, 2024, 1000);
+        svg.selectAll(".vertical-line")
+            .data(verticalLines)
+            .enter().append("line")
+            .attr("class", "vertical-line")
+            .attr("x1", d => x(d))
+            .attr("x2", d => x(d))
+            .attr("y1", margin.top)
+            .attr("y2", height - margin.bottom)
+            .attr("stroke", "lightgray")
+            .attr("stroke-width", 1);
 
         let rangesGroup = svg.selectAll(".range")
             .data(events.filter(d => d.end))
@@ -281,7 +286,6 @@
             .enter().append("text")
             .attr("class", "event")
             .attr("x", d => d.end ? x((d.start + d.end) / 2) : x(d.start))
-            /* change  events.length) - y move label vert.*/
             .attr("y", (d, i) => getVerticalPosition(i, events.length) + 10)
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
@@ -292,7 +296,7 @@
             .enter().append("circle")
             .attr("class", "point-event")
             .attr("cx", d => x(d.start))
-            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 80)
+            .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 35)
             .attr("r", 5)
             .attr("fill", "blue");
 
@@ -301,7 +305,7 @@
             .enter().append("text")
             .attr("class", "event")
             .attr("x", d => x(d.start))
-            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 70)
+            .attr("y", (d, i) => getVerticalPosition(i, events.length) - 20)
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
             .text(d => d.content);
@@ -354,8 +358,10 @@
             pointEventsGroup.attr("cx", d => transform.applyX(x(d.start)));
             eventsGroup.attr("x", d => transform.applyX(x((d.start + d.end) / 2)));
             pointLabelsGroup.attr("x", d => transform.applyX(x(d.start)));
+            svg.selectAll(".vertical-line")
+                .attr("x1", d => transform.applyX(x(d)))
+                .attr("x2", d => transform.applyX(x(d)));
         }
-
 
         // Handle window resize
         window.addEventListener('resize', () => {
@@ -377,12 +383,17 @@
                 .attr("y", (d, i) => getVerticalPosition(i, events.length) + 10);
 
             pointEventsGroup.attr("cx", d => x(d.start))
-                .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 80);
+                .attr("cy", (d, i) => getVerticalPosition(i, events.length) - 35);
 
             pointLabelsGroup.attr("x", d => x(d.start))
-                .attr("y", (d, i) => getVerticalPosition(i, events.length) - 70);
-        });
+                .attr("y", (d, i) => getVerticalPosition(i, events.length) - 20);
 
+            svg.selectAll(".vertical-line")
+                .attr("x1", d => x(d))
+                .attr("x2", d => x(d))
+                .attr("y1", margin.top)
+                .attr("y2", height - margin.bottom);
+        });
     </script>
 </body>
 
