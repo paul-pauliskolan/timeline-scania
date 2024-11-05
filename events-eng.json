@@ -1,0 +1,270 @@
+[
+  {
+    "content": "Western hunter-gatherer (WHG)",
+    "start": -15000,
+    "end": -5000,
+    "desc": "Hunter-gatherers living in Europe during the late Paleolithic and Mesolithic periods."
+  },
+  {
+    "content": "Eastern hunter-gatherer (EHG)",
+    "start": -14000,
+    "end": -9000,
+    "desc": "Ancient people from Eastern Europe and Siberia, merging with other populations during migration."
+  },
+  {
+    "content": "Hamburg culture",
+    "start": -13500,
+    "end": -11150,
+    "desc": "A late Upper Paleolithic culture of reindeer hunters in northwestern Europe during the last part of the Weichsel Glaciation beginning during the Bölling interstadial."
+  },
+  {
+    "content": "Bromme culture",
+    "start": -11600,
+    "end": -9800,
+    "desc": "A late Upper Paleolithic culture of reindeer hunters in Scandinavia and northern Europe, named after the Bromme site in Denmark. The culture is associated with the Ahrensburg culture, and both are considered part of the Hamburg culture. About 20 settlements has been found un Skåne från this culture."
+  },
+  {
+    "content": "Scandinavian hunter-gatherer (SHG)",
+    "start": -9500,
+    "end": -4000,
+    "desc": "The first inhabitants of Scandinavia, relying on hunting, fishing, and foraging."
+  },
+  {
+    "content": "Maglemosian culture",
+    "start": -9000,
+    "end": -6000,
+    "desc": "Mesolithic culture known for its advanced tool-making and settlement of forests and lakes."
+  },
+  {
+    "content": "Early European Farmers (EEF)",
+    "start": -7000,
+    "end": -4000,
+    "desc": "Early Neolithic farmers who spread agriculture throughout Europe from the Near East."
+  },
+  {
+    "content": "Kongemose culture",
+    "start": -6000,
+    "end": -5200,
+    "desc": "A Mesolithic culture in southern Scandinavia, preceding the Ertebølle culture."
+  },
+  {
+    "content": "Ertebølle culture",
+    "start": -5400,
+    "end": -3950,
+    "desc": "A late Mesolithic culture known for pottery and transitioning towards farming."
+  },
+  {
+    "content": "Western Steppe Herders (WSH)",
+    "start": -5000,
+    "end": -2000,
+    "desc": "Nomadic herders from the Pontic-Caspian steppe, crucial in the Indo-European expansion."
+  },
+  {
+    "content": "Funnelbeaker culture",
+    "start": -4300,
+    "end": -2800,
+    "desc": "Early Neolithic farmers who built megalithic tombs and cultivated land in northern Europe."
+  },
+  {
+    "content": "Pitted Ware culture",
+    "start": -3500,
+    "end": -2300,
+    "desc": "A culture known for its distinctive pottery and reliance on coastal hunting and fishing."
+  },
+  {
+    "content": "Yamnaya culture",
+    "start": -3300,
+    "end": -2600,
+    "desc": "A nomadic pastoralist group from the Eurasian steppe, contributing to the spread of Indo-European languages."
+  },
+  {
+    "content": "Corded Ware culture",
+    "start": -3000,
+    "end": -2350,
+    "desc": "A widespread European culture known for its cord-impressed pottery and burial practices."
+  },
+  {
+    "content": "Bell Beaker culture",
+    "start": -2800,
+    "end": -1800,
+    "desc": "A European culture known for its distinctive bell-shaped pottery and copper use."
+  },
+  {
+    "content": "Battle Axe culture",
+    "start": -2800,
+    "end": -2300,
+    "desc": "A culture in northern Europe, often associated with warrior elites and the spread of Indo-European languages."
+  },
+  {
+    "content": "Nordic Bronze Age",
+    "start": -1750,
+    "end": -500,
+    "desc": "A flourishing period in Scandinavia, known for its bronze artifacts and long-distance trade. Settlements had expanded from the fertile areas in the southwest and southeast to include more regions. People lived in a hierarchical society where significant individuals were buried in large burial mounds, which are still visible in the landscape of Skåne today."
+  },
+  {
+    "content": "Pre-Roman Iron Age",
+    "start": -500,
+    "end": -100,
+    "desc": "The period before Roman influence, marked by the transition to iron use in northern Europe."
+  },
+  {
+    "content": "Roman Iron Age",
+    "start": 0,
+    "end": 400,
+    "desc": "A time of Roman contact and influence in Scandinavia, though not direct rule."
+  },
+  {
+    "content": "Uppåkra.",
+    "start": -100,
+    "end": 1000,
+    "desc": "Around the 1st century BC, Uppåkra was a small Iron Age settlement that grew into one of Northern Europe's largest. It became a political power center for an aristocracy, evidenced by impressive hall buildings resembling wooden palaces. Dramatic events, such as house fires and violent deaths, occurblue there. With only 0.2% of Uppåkra excavated, future digs will continue to reshape Scandinavian history. Cultural layers reach nearly two meters in depth, and many mysteries, including the site's role, how its people lived, and where they were buried, remain to be uncovered."
+  },
+  {
+    "content": "Migration Period",
+    "start": 400,
+    "end": 800,
+    "desc": "A time of upheaval and migration in Europe, with the fall of the Western Roman Empire and the rise of new kingdoms."
+  },
+  {
+    "content": "Viking age",
+    "start": 800,
+    "end": 1050,
+    "desc": "The era of Norse exploration, trade, and raids, shaping Scandinavian and European history."
+  },
+  {
+    "content": "Middle Ages",
+    "start": 1050,
+    "end": 1500,
+    "desc": "A period of feudalism, Christianization, and consolidation of kingdoms in Scandinavia."
+  },
+  {
+    "content": "Renaissance",
+    "start": 1500,
+    "end": 1650,
+    "desc": "A cultural and intellectual revival, marked by advances in art, science, and exploration."
+  },
+  {
+    "content": "Age of Enlightenment",
+    "start": 1650,
+    "end": 1800,
+    "desc": "An intellectual movement emphasizing reason, science, and individual rights."
+  },
+  {
+    "content": "Industrial Revolution",
+    "start": 1760,
+    "end": 1840,
+    "desc": "The transition to industrial economies, changing social structures and technologies in Europe."
+  },
+  {
+    "content": "Modern Age",
+    "start": 1900,
+    "end": 2024,
+    "desc": "The contemporary period, characterized by technological advancements, global conflicts, and rapid societal changes."
+  },
+  {
+    "content": "Farmers (EEF) with genetic roots in Anatolia arrived.",
+    "start": -3900,
+    "desc": "Early European Farmers (EEF) were a group of the Anatolian Neolithic Farmers (ANF) who brought agriculture to Europe and Northwest Africa. They were the first to cultivate crops and raise livestock, leading to a shift from hunter-gatherer societies to settled farming communities. EEF farmers spread across Europe, mixing with local hunter-gatherer populations and contributing to the genetic diversity of modern Europeans."
+  },
+  {
+    "content": "People with genetic roots from Pontic–Caspian steppe arrived.",
+    "start": -2650,
+    "desc": "The Yamnaya people, associated with the Proto-Indo-European migrations, began spreading into Europe from the Pontic-Caspian steppe around 3000 BCE. Their influence reached Northern Europe and Scandinavia, including Skåne, by approximately 2800–2500 BCE. They are linked to the Corded Ware culture in Europe, which shows strong genetic and cultural ties to the Yamnaya."
+  },
+  {
+    "content": "The King's Grave in Kivik.",
+    "start": -1600,
+    "desc": "The King's Grave, also known as Kiviksgraven or Bredarör, is a burial cairn located in Kivik, in the parish of Södra Mellby and the municipality of Simrishamn. It is a burial site from the Bronze Age, which has been partially destroyed, looted, and restored to a non-original state throughout history. In its restored form, the grave measures approximately 75 meters in diameter and is 3.5 meters high. It is considered to be one of the largest graves from the Early Bronze Age in Scandinavia (around 1700–1100 BC). The grave contains a coffin that is 3.25 meters long and just over a meter wide."
+  },
+  {
+    "content": "Skåne is mentioned in writing for the first time",
+    "start": 811,
+    "desc": "Skåne is first mentioned in writing in the Annales Regni Francorum in connection with the peace treaty between the Danes and Charlemagne in the year 811. Included in the Danish entourage was 'Osfrid from Schonen,' who was possibly the king of Skåne."
+  },
+  {
+    "content": "Danish king Harald Bluetooth conquered Skåne.",
+    "start": 970,
+    "desc": "Through, among other things, the spread of rune stones from the late 10th century, it can be concluded that the Öresund coast and the southern coast of Skåne must have been brought under Harald's rule."
+  },
+  {
+    "content": "Harald Bluetooth introduced the Christianity to Skåne.",
+    "start": 1000,
+    "desc": "By constructing so-called trelleborgs, large ring fortresses for garrisons of soldiers, he took control of parts of the region. A characteristic feature of these ring fortresses is that a Christian church was built just outside one of the gates, likely dedicated to St. Clemens. Trelleborgs are well documented in Trelleborg and near Borgeby Castle by Löddeköpinge."
+  },
+  {
+    "content": "Sven Estridsson",
+    "start": 1020,
+    "desc": "The Danish king Sven Estridsson powerfully dominated Skåne's politics during the mid-11th century. The king, whose father Ulf Torgilsson had been the Jarl of Skåne and was murdered by the previous king, likely owned a large number of estates in the region, as did his mother Estrid, who donated '50 bol' in Göinge to the cathedral in Roskilde. Sven himself transferred royal property to the church in Dalby."
+  },
+  {
+    "content": "The Battle of Fotevik",
+    "start": 1134,
+    "desc": "The Battle of Fotevik was fought on 4 June 1134 between the fleets of the Kingdom of Denmark and the Kingdom of Sweden near Fotevik, close to the modern town of Trelleborg. The battle ended in a decisive victory for the Danish forces, led by King Eric II of Denmark, over the Swedish forces, led by King Niels of Sweden. The battle was part of the ongoing conflict between Denmark and Sweden over control of the southern Baltic Sea and the Scanian provinces."
+  },
+  {
+    "content": "Skåne was conquered by Sweden.",
+    "start": 1658,
+    "desc": "After the conquest, especially during the reign of Charles XI (1660–1697), a comprehensive Swedish assimilation of Skåne was carried out. Repeated Danish attempts to retake Skåne and the other Scanian provinces, including the Scanian War (1675–1679) and the Danish campaign in Skåne and Blekinge in 1709–1710, were repelled."
+  },
+  {
+    "content": "Weichselian glaciation end",
+    "start": -14000,
+    "desc": "The last glacial period in northern Europe, shaping much of Scandinavia's landscape."
+  },
+  {
+    "content": "Mammoth tusk at Lockarp.",
+    "start": -13000,
+    "desc": "Mammoth tusk found at Lockarp near Malmö"
+  },
+  {
+    "content": "The oldest traces of humans in Skåne at Lake Finjasjö.",
+    "start": -11500,
+    "desc": "The oldest traces of humans in Skåne have been found in Mölleröd, near the northern part of Lake Finjasjö. Probably was the traces part of the Hamburg culture"
+  },
+  { "content": "First permanent settlements.", "start": -11000, "desc": "." },
+  {
+    "content": "Traces of humans in Segebro.",
+    "start": -10000,
+    "desc": "Traces of humans in Sweden have been found at Segebro, in the north of Malmö, and are estimated to date back to around 10,000 BCE. The findings of flint scrapers, knives, and arrowheads likely come from nomadic reindeer hunters, and the remains at Segebro may have served as a temporary reindeer hunting camp. Probably was the settlement part of the Bromme culture."
+  },
+  {
+    "content": "Skåne lost its land bridge to Själland.",
+    "start": -7500,
+    "desc": "At times, the sea was at its current level, and other times several meters higher."
+  },
+  {
+    "content": "The Barum woman",
+    "start": -7000,
+    "desc": "Her skeleton was discovered in northeastern Skåne in the 1930s, is one of Sweden's most famous Stone Age figures. She lived around 9,000 years ago, and tools for hunting and fishing found in her grave suggest she was a hunter. Evidence from other women's graves, such as those on Gotland, also confirms that women participated in hunting during the Stone Age in Scandinavia."
+  },
+  {
+    "content": "Settlement at Skateholm",
+    "start": -6000,
+    "desc": "The settlement at Skateholm, near the village of Löddeköpinge, was inhabited from around 6,000 BCE to 5,000 BCE. The site is known for its well-preserved graves, which contain tools, food, and red ochre. The people of Skateholm were hunter-gatherers who lived in a coastal environment, relying on fishing and hunting for sustenance."
+  },
+  {
+    "content": "Settlement at Tågerup",
+    "start": -5500,
+    "desc": "Traces of a large coastal settlement from 6,000–5,000 BCE were found at Tågerup. The graves, like those at Skateholm, show use of red ochre and burial with food and tools. Archaeologists also discovered remains of pilings and docks for boats, as well as several fish traps. Evidence of various houses, including tent-like structures around eight meters in diameter, larger workshop houses, and residential buildings, suggests the settlement may have housed over 100 people."
+  },
+  {
+    "content": "Haväng dolmen.",
+    "start": -5500,
+    "desc": "Haväng dolmen is a stone chamber grave (megalithic grave) of the dolmen type from the Late Stone Age, approximately 5,500 years old, built during the earlier phase of the Funnel Beaker Culture. The megalithic grave is located at Haväng on Österlen, within the Ravlunda parish, just north of the mouth of Verkaån in Hanö Bay, on the southern edge of the Ravlunda firing range."
+  },
+  {
+    "content": "Agriculture begun",
+    "start": -4000,
+    "desc": "Agriculture began in Skåne around 4000 BCE, during the so-called Neolithic period (the farming Stone Age). This period was characterized by the transition from a hunter-gatherer lifestyle to a more settled life with farming and animal husbandry"
+  },
+  {
+    "content": "Hindby offering bog",
+    "start": -4000,
+    "desc": "One of the longest continuously used offering sites in prehistoric Skåne was a bog near Hindby. The oldest finds from Hindby date back to around 4,000 BCE, at the end of the Stone Age, while the youngest are from the middle of the Bronze Age, more than 2,500 years later."
+  },
+  {
+    "content": "Polished flint axes",
+    "start": -3000,
+    "desc": "In the 3rd millennium BCE, polished flint axes were made for the first time in Skåne. Alongside the advent of agriculture and these flint axes, the oldest known offerings were also found in Skåne. Flint axes are particularly common as offerings, but other tools and food were also sacrificed."
+  }
+]

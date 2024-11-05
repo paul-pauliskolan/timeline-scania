@@ -10,10 +10,14 @@
 </head>
 
 <body>
-    <h1>Skånes historia</h1>
+    <h1>History of Scania (Skåne)</h1>
     <div class="flag-container">
-        <a href="index.html"><img src="swedish-flag.png" alt="Swedish Flag" class="flag-icon"></a>
-        <a href="index-eng.html"><img src="british-flag.png" alt="British Flag" class="flag-icon"></a>
+        <a href="index.html">
+            <img src="swedish-flag.png" alt="Swedish Flag" class="flag-icon">
+        </a>
+        <a href="index-eng.html">
+            <img src="british-flag.png" alt="British Flag" class="flag-icon">
+        </a>
     </div>
     <svg></svg>
 
@@ -24,29 +28,21 @@
     <div id="info-box">
         <span class="close-btn">X</span>
         <p>
-            <strong>Zoom:</strong> Använd musens skrollhjul eller pekplattan för att zooma in och ut på tidslinjen.
-            Detta
-            gör att du kan se
-            mer detaljer eller få en översikt över hela tidslinjen.
+            <strong>Zoom:</strong> Use your mouse scroll wheel or touchpad to zoom in and out on the timeline. This
+            allows you to see
+            more details or get an overview of the entire timeline.
         </p>
-        <p>
-            <strong>Dra:</strong> Klicka och håll ner vänster musknapp, dra sedan musen för att flytta tidslinjen till
-            vänster eller
-            höger. Detta
-            hjälper dig att navigera genom olika historiska perioder.
-        </p>
-        <p>
-            <strong>Hovra:</strong> När du för musen över en stapel eller punkt på tidslinjen kommer en verktygstips att
-            visas.
+        <p><strong>Drag:</strong> Click and hold the left mouse button, then move the mouse to drag the timeline left or
+            right. This
+            helps you navigate through different periods of history.</p>
+        <p><strong>Hover:</strong> When you move your mouse over a bar or point on the timeline, a tooltip will appear.
         </p>
 
     </div>
-    <div id="open-icon">☰ Visa instruktioner</div>
+    <div id="open-icon">☰ Show instructions</div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
         // JavaScript to handle the opening and closing of the info box
-
-
         const infoBox = document.getElementById('info-box');
         const openIcon = document.getElementById('open-icon');
         const closeBtn = document.querySelector('#info-box .close-btn');
@@ -64,7 +60,7 @@
 
         let events = [];
 
-        fetch('events.json')
+        fetch('events-eng.json')
             .then(response => response.json())
             .then(data => {
                 events = data;
