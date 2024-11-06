@@ -1,54 +1,54 @@
 [
   {
-    "content": "Västerländsk jägare-samlare (WHG)",
+    "content": "Västliga jägare-samlare (WHG)",
     "start": -15000,
     "end": -5000,
     "desc": "Jägare-samlare som levde i Europa under den sena paleolitiska och mesolitiska perioden."
   },
   {
-    "content": "Österländsk jägare-samlare (EHG)",
+    "content": "Östliga jägare-samlare (EHG)",
     "start": -14000,
     "end": -9000,
-    "desc": "Gamla folk från Östeuropa och Sibirien, som slogs samman med andra befolkningar under migration."
+    "desc": "Forntid folk från Östeuropa och Sibirien, som slogs samman med andra befolkningar under migration."
   },
   {
-    "content": "Hamburgkultur",
+    "content": "Hamburgkulturen",
     "start": -13500,
     "end": -11150,
-    "desc": "En sen övre paleolitisk kultur av renjägare i nordvästra Europa under den sista delen av Weichsel-isen som började under Bölling-interstadialen."
+    "desc": "En sen övre paleolitisk kultur av renjägare i nordvästra Europa under den sista delen av Weichsel-istiden som började under värmeperioden Böllingtid."
   },
   {
-    "content": "Brommekultur",
+    "content": "Brommekulturen",
     "start": -11600,
     "end": -9800,
-    "desc": "En sen övre paleolitisk kultur av renjägare i Skandinavien och norra Europa, namngiven efter Brommesitets i Danmark. Kulturen är kopplad till Ahrensburgkulturen, och båda anses vara en del av Hamburgkulturen. Cirka 20 bosättningar har hittats i Skåne från denna kultur."
+    "desc": "En sen övre paleolitisk kultur av renjägare i Skandinavien och norra Europa, namngiven efter Bromme i Danmark. Kulturen är kopplad till Ahrensburgkulturen. Cirka 20 bosättningar har hittats i Skåne från denna kultur."
   },
   {
-    "content": "Skandinavisk jägare-samlare (SHG)",
+    "content": "Skandinaviska jägare-samlare (SHG)",
     "start": -9500,
     "end": -4000,
     "desc": "De första invånarna i Skandinavien, som förlitade sig på jakt, fiske och insamling."
   },
   {
-    "content": "Maglemosiansk kultur",
+    "content": "Maglemosekulturen",
     "start": -9000,
     "end": -6000,
-    "desc": "Mesolitisk kultur känd för sin avancerade verktygstillverkning och bosättning av skogar och sjöar."
+    "desc": "Maglemosekulturen är känd för sin avancerade verktygstillverkning och bosättning av skogar och sjöar."
   },
   {
     "content": "Tidiga europeiska bönder (EEF)",
     "start": -7000,
     "end": -4000,
-    "desc": "Tidiga neolitiska bönder som spred jordbruket över hela Europa från det närliggande östern."
+    "desc": "Tidiga neolitiska bönder som spred jordbruket över hela Europa från Anatolian."
   },
   {
-    "content": "Kongemoskultur",
+    "content": "Kongemosekulturen",
     "start": -6000,
     "end": -5200,
-    "desc": "En mesolitisk kultur i södra Skandinavien, föregående Ertebøllekulturen."
+    "desc": "En mesolitisk kultur i södra Skandinavien, föregående Erteböllekulturen."
   },
   {
-    "content": "Ertebøllekultur",
+    "content": "Erteböllekulturen",
     "start": -5400,
     "end": -3950,
     "desc": "En sen mesolitisk kultur känd för keramik och övergången till jordbruk."
@@ -60,25 +60,25 @@
     "desc": "Nomadiska herdar från Pontisk-Kaspiska steppen, avgörande för den indoeuropeiska expansionen."
   },
   {
-    "content": "Trattbäkarkultur",
+    "content": "Trattbägarkulturen",
     "start": -4300,
     "end": -2800,
     "desc": "Tidiga neolitiska bönder som byggde megalitiska gravar och odlade mark i norra Europa."
   },
   {
-    "content": "Grötstenskultur",
+    "content": "Gropkeramiska kulturen",
     "start": -3500,
     "end": -2300,
     "desc": "En kultur känd för sin distinkta keramik och beroende av kustjakt och fiske."
   },
   {
-    "content": "Jamnanijkultur",
+    "content": "Jamnakulturen",
     "start": -3300,
     "end": -2600,
     "desc": "En nomadisk pastoralistgrupp från den eurasiska steppen, bidragande till spridningen av indoeuropeiska språk."
   },
   {
-    "content": "Snörkeramikkultur",
+    "content": "Snörkeramisk kultur",
     "start": -3000,
     "end": -2350,
     "desc": "En utbredd europeisk kultur känd för sin snörimpräntade keramik och begravningspraxis."
@@ -90,10 +90,10 @@
     "desc": "En europeisk kultur känd för sin distinkta klockformade keramik och kopparanvändning."
   },
   {
-    "content": "Krigshackekultur",
+    "content": "Stridsyxekulturen",
     "start": -2800,
     "end": -2300,
-    "desc": "En kultur i norra Europa, ofta associerad med krigareliter och spridningen av indoeuropeiska språk."
+    "desc": "En kultur i norra Europa, ofta associerad med krigareliter. En regional variant av så kallad Snörkeramisk kultur"
   },
   {
     "content": "Nordisk bronsålder",
@@ -102,16 +102,16 @@
     "desc": "En blomstrande period i Skandinavien, känd för sina bronsartefakter och långdistanshandel. Bosättningar hade expanderat från de bördiga områdena i sydväst och sydost för att inkludera fler regioner. Folk levde i ett hierarkiskt samhälle där betydande individer begravdes i stora gravhögar, som fortfarande är synliga i landskapet i Skåne idag."
   },
   {
-    "content": "Före-romersk järnålder",
+    "content": "Förromersk järnålder",
     "start": -500,
     "end": -100,
-    "desc": "Perioden före romersk påverkan, präglad av övergången till järnanvändning i norra Europa."
+    "desc": "Perioden före romersk påverkan, präglad av övergången till järnanvändning i norra Europa. Med järnålderns inträde tog nya samhällsstrukturer form. Urnegravarna ersatte nu helt gravhögarna, vilket möjligen berodde på att hövdingarnas makt minskade"
   },
   {
     "content": "Romersk järnålder",
     "start": 0,
     "end": 400,
-    "desc": "En tid av romerskt kontakt och påverkan i Skandinavien, dock inte direkt styre."
+    "desc": "En tid av romerskt kontakt och påverkan i Skandinavien."
   },
   {
     "content": "Uppåkra.",
@@ -120,10 +120,16 @@
     "desc": "Runt 1:a århundradet f.Kr. var Uppåkra en liten järnåldersbosättning som växte till en av Norra Europas största. Den blev ett politiskt maktcentrum för en aristokrati, vilket bevisas av imponerande hallbyggnader som liknar trähus. Dramatiska händelser, såsom husbränder och våldsamma dödsfall, inträffade där. Med endast 0,2% av Uppåkra utgrävt kommer framtida utgrävningar att fortsätta att omforma den skandinaviska historien. Kulturella lager når nästan två meter i djup, och många mysterier, inklusive platsens roll, hur dess folk levde och var de begravdes, återstår att avtäcka."
   },
   {
-    "content": "Migrationstiden",
-    "start": 400,
-    "end": 800,
+    "content": "Folkvandringstiden",
+    "start": 375,
+    "end": 550,
     "desc": "En tid av omvälvning och migration i Europa, med den västra romerska imperiets fall och uppkomsten av nya kungadömen."
+  },
+  {
+    "content": "Yngre germansk järnålder (Vendeltiden)",
+    "start": 550,
+    "end": 800,
+    "desc": "En period av politisk och social omvandling i Skandinavien, med framväxten av nya kungadömen."
   },
   {
     "content": "Vikingatid",
@@ -138,7 +144,7 @@
     "desc": "En period av feodalism, kristnande, och konsolidering av kungadömen i Skandinavien."
   },
   {
-    "content": "Renässanser",
+    "content": "Renässansen",
     "start": 1500,
     "end": 1650,
     "desc": "En kulturell och intellektuell väckelse, präglad av framsteg inom konst, vetenskap och utforskning."
@@ -207,19 +213,19 @@
     "desc": "Efter erövringen, särskilt under Karl XI:s regering (1660–1697), genomfördes en omfattande svensk assimileringsprocess av Skåne. Upprepade danska försök att återta Skåne och de andra skånska provinserna, inklusive Skånska kriget (1675–1679) och den danska kampanjen i Skåne och Blekinge 1709–1710, avvisades."
   },
   {
-    "content": "Weichsel-isen slut",
+    "content": "Weichsel isen smälter",
     "start": -14000,
     "desc": "Den senaste glaciala perioden i norra Europa som formade mycket av Skandinaviens landskap."
   },
   {
-    "content": "Mamuthorn i Lockarp.",
+    "content": "Mammutbete i Lockarp.",
     "start": -13000,
-    "desc": "Mamuthorn hittades vid Lockarp nära Malmö."
+    "desc": "Mammutbete hittades vid Lockarp nära Malmö."
   },
   {
-    "content": "De äldsta spåren av människor i Skåne vid Finjasjö.",
+    "content": "De äldsta spåren av människor i Skåne vid Finjasjn.",
     "start": -11500,
-    "desc": "De äldsta spåren av människor i Skåne har hittats i Mölleröd, nära den norra delen av Finjasjö. Sannolikt var spåren en del av Hamburgkulturen."
+    "desc": "De äldsta spåren av människor i Skåne har hittats i Mölleröd, nära den norra delen av Finjasjön. Sannolikt var spåren en del av Hamburgkulturen."
   },
   {
     "content": "Första permanenta bosättningar.",
