@@ -11,6 +11,7 @@
 
         gtag('config', 'G-37R9Q3VDJ3');
     </script>
+    <script defer src="modal.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skånes historia</title>
@@ -20,6 +21,30 @@
 
 <body>
     <h1>Skånes historia</h1>
+    <p class="author">Gjord av Paul Belfrage</p>
+    <a class="btn-contact open-button"> <img src="contact-form.png" alt="kontakt">Kontakt</a>
+
+    <dialog class="modal" id="modal">
+
+        <button class="button close-button">X</button>
+
+        <div class="modal-content">
+            <p>Om du önskar kontakta mig vänligen fyll i detta formulär</p>
+            <form class="contact-form" target="_blank" action="https://formsubmit.co/fc585dbcd8ea518bfccc9c4030074c61"
+                method="POST">
+
+                <input type="text" name="name" class="form-control" placeholder="Namn" required>
+
+                <input type="email" name="email" class="form-control" placeholder="E-post" required>
+
+                <textarea class="contact-textarea" placeholder="Ditt meddelande" name="message" rows="10"
+                    required></textarea>
+
+                <button class="contact-button" type="submit">Skicka</button>
+            </form>
+        </div>
+
+    </dialog>
     <div class="flag-container">
         <a href="index.html"><img src="swedish-flag.png" alt="Swedish Flag" class="flag-icon"></a>
         <a href="index-eng.html"><img src="british-flag.png" alt="British Flag" class="flag-icon"></a>
@@ -39,13 +64,15 @@
             mer detaljer eller få en översikt över hela tidslinjen.
         </p>
         <p>
-            <strong>Dra:</strong> Klicka och håll ner vänster musknapp, dra sedan musen för att flytta tidslinjen till
+            <strong>Dra:</strong> Klicka och håll ner vänster musknapp, dra sedan musen för att flytta tidslinjen
+            till
             vänster eller
             höger. Detta
             hjälper dig att navigera genom olika historiska perioder.
         </p>
         <p>
-            <strong>Hovra:</strong> När du för musen över en stapel eller punkt på tidslinjen kommer en verktygstips mer
+            <strong>Hovra:</strong> När du för musen över en stapel eller punkt på tidslinjen kommer en verktygstips
+            mer
             mer information att
             visas.
         </p>
